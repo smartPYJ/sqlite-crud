@@ -129,16 +129,15 @@ def view_student(con):
 def welcome():
     print(
         '''
-    Welcome to SMART College International school managment system  \t
-    Select an option from the list of options \t
-     press 1 to add a student \t
-     press 2 to update student record \t
-     press 3 to delete a student \t
-     press 4 to view all student \t 
+    
+     press 1 to add a student
+     press 2 to update student record 
+     press 3 to delete a student 
+     press 4 to view all student 
 
      '''
     )
-    option = int(input(" .....waiting for reply "))
+    option = int(input(" ..... "))
 
     if option == 1:
         add_student(con)
@@ -155,11 +154,11 @@ def welcome():
 def update():
     print(
         '''
-        welcome to student update \t
-        press 1 to update student name \t
-        press 2 to update student age \t
-        press 3 to update student state \t
-        press 4 to update student department\t
+        welcome to student update 
+        press 1 to update student name 
+        press 2 to update student age 
+        press 3 to update student state 
+        press 4 to update student department
         press 5 to update student religion 
 
         '''
@@ -186,5 +185,5 @@ while (action != 0):
     welcome()
     action = int(
         input("Choose an action \t Press 1  to manage database \t press 0 to exit"))
-print("Thank you for using SMART College Database ")
+print("Thanks")
 exit(0)

@@ -19,7 +19,7 @@ def sql_table(con):
     try:
         cursorObj = con.cursor()
         cursorObj.execute(
-            "CREATE TABLE profile(registration_no text PRIMARY KEY, surname text, firstname text,middlename text,age int, state text, department text, religion text)")
+            "CREATE TABLE profile(registration_no text PRIMARY KEY, full_name text,age int, state text, department text, religion text)")
         con.commit()
     except Error:
         print(Error)
@@ -33,18 +33,17 @@ def add_student(con):
     cursorObj = con.cursor()
 
     reg_no = input("enter your registration number  .. ")
-    firstname = input("enter your firstname.. ")
-    surname = input("enter your surname.. ")
-    middlename = input("enter your middle name.. ")
+    full_name = input("enter your full name.. ")
+   
     age = int(input("enter your age .. "))
     state = input("enter your state  .. ")
     department = input("enter your department  .. ")
     religion = input("enter your state  .. ")
-    entities = (reg_no, firstname, surname, middlename,
+    entities = (reg_no, full_name,
                 age, state, department, religion)
 
     cursorObj.execute(
-        'INSERT INTO profile(registeraton_no, surname, firstname, middlename, age, state, department, religion ) VALUES(?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO profile(registeraton_no, full_name, age, state, department, religion ) VALUES(?, ?, ?, ?, ?, ?)',
         entities)
     con.commit()
 
@@ -55,9 +54,9 @@ def add_student(con):
 def update_name(con):
     cursorObj = con.cursor()
     regno = input("Enter Student Registration Number ")
-    name = input(" Enter Student New  Firstname ")
+    name = input(" Enter Student New  name")
     cursorObj.execute(
-        'UPDATE  profile  SET name= ?  WHERE registration_no= ?', (name, regno))
+        'UPDATE  profile  SET full_name= ?  WHERE registration_no= ?', (name, regno))
     con.commit()
 
 
